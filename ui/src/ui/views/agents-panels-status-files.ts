@@ -387,7 +387,10 @@ export function renderAgentFiles(params: {
       </div>
       ${
         list
-          ? html`<div class="muted mono" style="margin-top: 8px;">Workspace: ${list.workspace}</div>`
+          ? html`<div class="muted mono" style="margin-top: 8px;">Workspace: <a
+              href="file://${list.workspace}"
+              class="workspace-link"
+            >${list.workspace}</a></div>`
           : nothing
       }
       ${
