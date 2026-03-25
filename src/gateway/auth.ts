@@ -114,8 +114,8 @@ function resolveTailscaleClientIp(req?: IncomingMessage): string | undefined {
 
 export function isLocalDirectRequest(
   req?: IncomingMessage,
-  trustedProxies?: string[],
-  allowRealIpFallback = false,
+  _trustedProxies?: string[],
+  _allowRealIpFallback = false,
 ): boolean {
   if (!req) {
     return false;
@@ -132,12 +132,7 @@ export function isLocalDirectRequest(
   if (!hasForwarded) {
     return isLoopbackAddress(req.socket?.remoteAddress);
   }
-
-  // When forwarded headers are present, resolveRequestClientIp intentionally fails closed
-  // if the proxy chain is missing or invalid. Do not fall back to the raw socket address here,
-  // or proxied requests can be reclassified as local-direct.
-  const clientIp = resolveRequestClientIp(req, trustedProxies, allowRealIpFallback) ?? "";
-  return isLoopbackAddress(clientIp);
+  return false;
 }
 
 function getTailscaleUser(req?: IncomingMessage): TailscaleUser | null {
