@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 
 import { readFileSync } from "node:fs";
 import { access } from "node:fs/promises";

@@ -18,5 +18,19 @@
   "typescript.reportStyleChecksAsWarnings": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.experimental.useTsgo": true
+  "typescript.experimental.useTsgo": true,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "*.viewConfig"
+      ],
+      "schema": false,
+      "url": "file:///Users/zhug/.vscode/extensions/nokia.nokia-intent-manager-4.0.5/media/viewconfig-schema.json"
+    }
+  ],
+  "files.associations": {
+    "/actions/*": "yaml",
+    "/templates/*": "jinja",
+    "/workflows/*": "yaml"
+  }
 }
